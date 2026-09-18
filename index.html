@@ -615,6 +615,24 @@
   .contrib-wrapper img { width: 100%; min-width: 600px; height: auto; border-radius: 8px; filter: invert(1) hue-rotate(180deg) brightness(1.1) contrast(1.1); }
   body.light .contrib-wrapper img { filter: none; }
 
+  /* ===== PACMAN COMMITS (contribution graph game) ===== */
+  .pacman-graph {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; margin-top: 8px; overflow-x: auto; position: relative;
+  }
+  .pacman-graph::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #ffe600, var(--accent-1), var(--accent-2));
+  }
+  .pacman-graph picture, .pacman-graph img {
+    display: block; width: 100%; min-width: 600px; height: auto; border-radius: 8px;
+  }
+  .pacman-graph .pac-light { display: none; }
+  body.light .pacman-graph .pac-dark { display: none; }
+  body.light .pacman-graph .pac-light { display: block; }
+  .pacman-note { font-size: 13px; color: var(--muted); margin-top: 14px; font-family: var(--font-mono); }
+  .pacman-note a { color: var(--accent-2); text-decoration: underline; }
+
   /* ===== 404 PAGE ===== */
   .page-404 {
     display: none; min-height: 100vh; align-items: center; justify-content: center;
@@ -713,6 +731,7 @@
         <li><a href="#now">Now</a></li>
         <li><a href="rom-archive/" target="_blank" rel="noopener">ROM Archive</a></li>
         <li><a href="#uses">Uses</a></li>
+        <li><a href="#pacman">Pacman</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="https://github.com/samakshkambxj" target="_blank" rel="noopener" class="nav-cta">GitHub</a>
@@ -1053,6 +1072,27 @@
       </div>
       <div class="contrib-wrapper reveal">
         <img src="https://ghchart.rshah.org/samakshkambxj" alt="Samaksh's GitHub contribution graph" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- PACMAN COMMITS -->
+  <section id="pacman">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Pacman</div>
+        <h2 class="section-title">Pacman eats my commits</h2>
+        <p class="section-desc">My real GitHub contribution graph, turned into a live Pacman game. Auto-updates daily.</p>
+      </div>
+      <div class="pacman-graph reveal">
+        <!-- pacman -->
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/samakshkambxj/samakshkambxj.github.io/output/pacman-contribution-graph-dark.svg">
+          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/samakshkambxj/samakshkambxj.github.io/output/pacman-contribution-graph.svg">
+          <img class="pac-dark" alt="pacman contribution graph" src="https://raw.githubusercontent.com/samakshkambxj/samakshkambxj.github.io/output/pacman-contribution-graph-dark.svg" loading="lazy">
+        </picture>
+        <img class="pac-light" alt="pacman contribution graph" src="https://raw.githubusercontent.com/samakshkambxj/samakshkambxj.github.io/output/pacman-contribution-graph.svg" loading="lazy">
+        <div class="pacman-note">// generated daily by <a href="https://github.com/abozanona/pacman-contribution-graph" target="_blank" rel="noopener">pacman-contribution-graph</a> — yellow dot eats what I ship.</div>
       </div>
     </div>
   </section>
