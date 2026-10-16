@@ -1,0 +1,322 @@
+/* ============================================================
+   Material 3 Expressive skin — activated via body.m3
+   Bold theme stays default; this file only overrides.
+   ============================================================ */
+
+body.m3 {
+  --font-display: "Roboto", "Inter", system-ui, sans-serif;
+  --font-sans: "Roboto", "Inter", system-ui, -apple-system, sans-serif;
+  --radius: 28px;
+
+  /* M3 dark tonal roles (seeded from site violet) */
+  --m3-primary: #c4b5fd;
+  --m3-on-primary: #2a1e69;
+  --m3-primary-container: #4a3ec2;
+  --m3-on-primary-container: #e8e3ff;
+  --m3-secondary-container: #3d3d60;
+  --m3-on-secondary-container: #e3e3f5;
+  --m3-tertiary-container: #0b4f46;
+  --m3-on-tertiary-container: #aef0e1;
+  --m3-error-container: #6e2b2b;
+
+  --surface: #17171f;
+  --surface-2: #1e1e29;
+  --surface-solid: #1e1e29;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --text: #eceaf4;
+  --text-dim: #b9b7cf;
+  --glow: transparent;
+  --gradient: #c4b5fd;
+}
+
+/* flat tonal backdrop — no aurora in M3 mode */
+body.m3 .bg-grid,
+body.m3 .bg-noise,
+body.m3 .orb,
+body.m3 #particlesCanvas,
+body.m3 #cursorGlow { display: none; }
+
+/* ---------- M3 top app bar: floating rounded container ---------- */
+body.m3 header {
+  top: 12px;
+  margin: 0 12px;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background: rgba(30, 30, 41, 0.92);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+body.m3 header.scrolled { background: rgba(30, 30, 41, 0.96); }
+body.m3 .nav { height: 64px; }
+
+/* nav links become M3 pill items */
+body.m3 .nav-links { gap: 4px; }
+body.m3 .nav-links a { padding: 8px 16px; border-radius: 20px; }
+body.m3 .nav-links a::after { display: none; }
+body.m3 .nav-links a:hover { background: rgba(255, 255, 255, 0.08); color: var(--text); }
+body.m3 .nav-links a.active { background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); }
+
+/* ---------- M3 buttons ---------- */
+body.m3 .btn { min-height: 52px; border-radius: 20px; font-family: var(--font-sans); font-weight: 500; letter-spacing: 0.01em; }
+body.m3 .btn-primary { background: var(--m3-primary); color: var(--m3-on-primary); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); }
+body.m3 .btn-primary:hover { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45); }
+body.m3 .btn-ghost { background: var(--m3-secondary-container); border: none; color: var(--m3-on-secondary-container); }
+body.m3 .nav-cta { background: var(--m3-primary); color: var(--m3-on-primary) !important; border-radius: 20px; box-shadow: none; }
+body.m3 .nav-resume { border-radius: 20px; border-color: var(--border-strong); background: transparent; }
+body.m3 .theme-toggle,
+body.m3 .style-toggle { border-radius: 20px; border: none; background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); }
+body.m3 .hamburger { border-radius: 20px; border: none; background: var(--m3-secondary-container); }
+body.m3 .hamburger span { background: var(--m3-on-secondary-container); }
+
+/* ---------- M3 chips, search, progress ---------- */
+body.m3 .hero-badge { border-radius: 8px; background: var(--m3-tertiary-container); border: none; color: var(--m3-on-tertiary-container); }
+body.m3 .hero-badge .dot { background: var(--m3-on-tertiary-container); box-shadow: none; }
+body.m3 .pill { border-radius: 8px; background: var(--m3-secondary-container); border: none; color: var(--m3-on-secondary-container); }
+body.m3 .pill.teal { background: var(--m3-tertiary-container); color: var(--m3-on-tertiary-container); }
+body.m3 .tag { border-radius: 8px; }
+body.m3 .pill-btn { border-radius: 8px; background: transparent; min-height: 44px; }
+body.m3 .pill-btn.active { background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); box-shadow: none; }
+body.m3 .pill-btn.active::before { content: "✓"; font-size: 12px; }
+body.m3 .pill-btn .pill-count { display: none; }
+body.m3 .proj-search { border-radius: 28px; border: none; background: var(--m3-surface-container, #1e1e29); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); min-height: 52px; }
+body.m3 .bar-track { height: 10px; border-radius: 8px; background: var(--m3-secondary-container); }
+body.m3 .bar-fill { background: var(--m3-primary); }
+body.m3 .scroll-progress { background: var(--m3-primary); border-radius: 0 4px 4px 0; }
+body.m3 .hero h1 .grad,
+body.m3 .stat-num,
+body.m3 .nav-logo em,
+body.m3 .foot-inner .grad { background: none; -webkit-text-fill-color: var(--m3-primary); color: var(--m3-primary); }
+
+/* ---------- M3 cards: elevated, 28px, no neon ---------- */
+body.m3 .about-main,
+body.m3 .skill-card,
+body.m3 .project-card,
+body.m3 .craft-card,
+body.m3 .now-item,
+body.m3 .uses-card,
+body.m3 .gh-repo,
+body.m3 .panel,
+body.m3 .contact-hero {
+  border-radius: 28px;
+  border: 1px solid transparent;
+  background: #1e1e29;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+body.m3 .spot::before { display: none; }
+body.m3 .about-main:hover,
+body.m3 .skill-card:hover,
+body.m3 .project-card:hover,
+body.m3 .craft-card:hover,
+body.m3 .uses-card:hover,
+body.m3 .gh-repo:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); border-color: transparent; }
+body.m3 .project-card::after,
+body.m3 .craft-card::before,
+body.m3 .about-card::before { display: none; }
+body.m3 .project-card { border-left: 6px solid var(--m3-primary-container); }
+body.m3 .project-card.wide { border-left-color: var(--m3-primary); }
+body.m3 .project-tag { border-radius: 8px; background: var(--m3-tertiary-container); border: none; color: var(--m3-on-tertiary-container); }
+body.m3 .project-card.wide .project-tag { background: var(--m3-primary-container); color: var(--m3-on-primary-container); }
+body.m3 .skill-icon { border-radius: 16px; }
+body.m3 .skill-icon.lang { background: var(--m3-primary-container); color: var(--m3-on-primary-container); }
+body.m3 .skill-icon.sys { background: var(--m3-tertiary-container); color: var(--m3-on-tertiary-container); }
+body.m3 .skill-icon.web { background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); }
+body.m3 .skill-icon.tools { background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); }
+body.m3 .craft-icon { border-radius: 16px; background: var(--m3-primary-container); }
+body.m3 .now-ico { border-radius: 16px; background: var(--m3-secondary-container); border: none; }
+body.m3 .hero-stats { border-radius: 28px; border: 1px solid var(--border); }
+body.m3 .terminal { border-radius: 28px; }
+body.m3 .contact-hero::before { display: none; }
+body.m3 .contact-hero { background: var(--m3-primary-container); border: none; }
+body.m3 .contact-hero h2,
+body.m3 .contact-hero p { color: var(--m3-on-primary-container); }
+body.m3 .contact-hero .sec-index { color: var(--m3-on-primary-container); opacity: 0.8; }
+body.m3 .contact-hero .sec-index::after { background: currentColor; }
+body.m3 .contact-hero h2 .grad { -webkit-text-fill-color: var(--m3-primary); color: var(--m3-primary); }
+body.m3 .social-link { border-radius: 16px; border: none; background: rgba(255, 255, 255, 0.12); color: var(--m3-on-primary-container); }
+body.m3 .social-link:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ---------- M3 FAB (16px squircle) + dialogs ---------- */
+body.m3 .fab { border-radius: 16px; width: 56px; height: 56px; background: var(--m3-primary-container); color: var(--m3-on-primary-container); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+body.m3 .fab-menu a { border-radius: 16px; border: none; background: var(--m3-secondary-container); }
+body.m3 .back-to-top { border-radius: 16px; border: none; background: var(--m3-secondary-container); }
+body.m3 .kbd-box { border-radius: 28px; }
+body.m3 kbd { border-radius: 8px; }
+body.m3 .batman-toast { border-radius: 16px; }
+
+/* ---------- M3 navigation bar (mobile only) ---------- */
+.m3-navbar { display: none; }
+body.m3 .m3-navbar {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(30, 30, 41, 0.96);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border);
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+}
+body.m3 .m3-navbar a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-family: var(--font-sans); font-size: 11px; font-weight: 500; color: var(--text-dim);
+  padding: 2px 0;
+}
+body.m3 .m3-navbar .m3-ind {
+  display: flex; align-items: center; justify-content: center;
+  width: 56px; height: 30px; border-radius: 16px; font-size: 14px; font-style: normal;
+  transition: background 0.2s;
+}
+body.m3 .m3-navbar a.active { color: var(--text); }
+body.m3 .m3-navbar a.active .m3-ind { background: var(--m3-secondary-container); }
+
+/* ---------- M3 light scheme ---------- */
+body.m3.light {
+  --m3-primary: #4a3ec2;
+  --m3-on-primary: #ffffff;
+  --m3-primary-container: #e4e0ff;
+  --m3-on-primary-container: #211866;
+  --m3-secondary-container: #e2e0f2;
+  --m3-on-secondary-container: #2c2c44;
+  --m3-tertiary-container: #b8f0e2;
+  --m3-on-tertiary-container: #0a3f38;
+  --bg: #f6f4fc;
+  --surface: #ebe8f4;
+  --surface-2: #e3dff0;
+  --surface-solid: #ffffff;
+  --border: rgba(30, 25, 80, 0.12);
+  --border-strong: rgba(30, 25, 80, 0.22);
+  --text: #17142b;
+  --text-dim: #4d4a68;
+  --muted: #7c7a96;
+  --gradient: #4a3ec2;
+}
+body.m3.light header { background: rgba(235, 232, 244, 0.92); }
+body.m3.light header.scrolled { background: rgba(235, 232, 244, 0.96); }
+body.m3.light .about-main,
+body.m3.light .skill-card,
+body.m3.light .project-card,
+body.m3.light .craft-card,
+body.m3.light .now-item,
+body.m3.light .uses-card,
+body.m3.light .gh-repo,
+body.m3.light .panel { background: #ffffff; box-shadow: 0 2px 8px rgba(40, 30, 100, 0.1); }
+body.m3.light .contact-hero { background: var(--m3-primary-container); }
+body.m3.light .nav-links a:hover { background: rgba(30, 25, 80, 0.07); }
+body.m3.light .m3-navbar { background: rgba(235, 232, 244, 0.96); }
+
+/* ---------- responsive: show bar + lift floats above it ---------- */
+@media (max-width: 680px) {
+  body.m3 header { top: 8px; margin: 0 8px; }
+  body.m3 .m3-navbar { display: flex; }
+  body.m3 .fab { bottom: 104px; }
+  body.m3 .fab-menu { bottom: 170px; }
+  body.m3 .back-to-top { bottom: 172px; }
+  body.m3 footer { padding-bottom: 110px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.m3 * { transition-duration: 0.01ms !important; }
+}
+
+/* ---------- M3 status bar + quick settings ---------- */
+.m3-statusbar, .m3-qs, .m3-rail, .m3-switch { display: none; }
+body.m3 { scroll-padding-top: 140px; }
+body.m3 .m3-statusbar {
+  display: flex; align-items: center; justify-content: space-between;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 30px; padding: 0 16px;
+  background: var(--m3-surface, #17171f); color: var(--text);
+  font-family: var(--font-sans); font-size: 12.5px; font-weight: 500;
+  cursor: pointer; user-select: none;
+}
+body.m3 header { top: 42px; }
+body.m3 .m3-status-icons { display: flex; align-items: center; gap: 7px; }
+body.m3 .m3-signal { display: flex; align-items: flex-end; gap: 2px; height: 12px; }
+body.m3 .m3-signal i { width: 3px; border-radius: 1px; background: var(--text); }
+body.m3 .m3-signal i:nth-child(1) { height: 4px; }
+body.m3 .m3-signal i:nth-child(2) { height: 7px; }
+body.m3 .m3-signal i:nth-child(3) { height: 10px; }
+body.m3 .m3-signal i:nth-child(4) { height: 12px; opacity: 0.35; }
+body.m3 .m3-batt { width: 24px; height: 12px; border: 1.5px solid var(--text); border-radius: 4px; padding: 1.5px; position: relative; }
+body.m3 .m3-batt::after { content: ""; position: absolute; right: -5px; top: 2.5px; width: 2.5px; height: 4px; border-radius: 0 2px 2px 0; background: var(--text); opacity: 0.6; }
+body.m3 .m3-batt-fill { display: block; height: 100%; width: 100%; border-radius: 2px; background: var(--text); }
+body.m3 .m3-batt-pct { font-size: 11.5px; min-width: 34px; }
+body.m3 .m3-qs {
+  position: fixed; top: 30px; left: 0; right: 0; z-index: 199;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  background: rgba(30, 30, 41, 0.98);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 28px 28px;
+  padding: 16px 20px calc(18px + env(safe-area-inset-bottom));
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+body.m3 .m3-qs[hidden] { display: none; }
+body.m3 .m3-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  background: none; border: none; cursor: pointer; padding: 6px 2px;
+  font-family: var(--font-sans); font-size: 11.5px; font-weight: 500; color: var(--text-dim);
+}
+body.m3 .tile-ico {
+  width: 56px; height: 56px; border-radius: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--m3-secondary-container); color: var(--m3-on-secondary-container);
+  transition: background 0.2s;
+}
+body.m3 .m3-tile.on .tile-ico { background: var(--m3-primary); color: var(--m3-on-primary); }
+body.m3 .m3-tile.on { color: var(--text); }
+
+/* ---------- M3 navigation rail (desktop floating) ---------- */
+@media (min-width: 681px) {
+  body.m3 .nav-links { display: none; }
+  body.m3 .m3-rail {
+    display: flex; flex-direction: column; gap: 2px;
+    position: fixed; left: 12px; top: 50%; transform: translateY(-50%); z-index: 100;
+    background: rgba(30, 30, 41, 0.92);
+    -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 12px 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  }
+  body.m3 .m3-rail a {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    font-family: var(--font-sans); font-size: 10.5px; font-weight: 500; color: var(--text-dim);
+    padding: 4px 2px; min-width: 60px;
+  }
+  body.m3 .m3-rail .m3-ind {
+    display: flex; align-items: center; justify-content: center;
+    width: 52px; height: 30px; border-radius: 16px; font-size: 14px;
+    transition: background 0.2s;
+  }
+  body.m3 .m3-rail a:hover .m3-ind { background: rgba(255, 255, 255, 0.08); }
+  body.m3 .m3-rail a.active { color: var(--text); }
+  body.m3 .m3-rail a.active .m3-ind { background: var(--m3-secondary-container); color: var(--m3-on-secondary-container); }
+}
+
+/* ---------- M3 switch replaces emoji theme button ---------- */
+body.m3 .theme-toggle { display: none; }
+body.m3 .m3-switch { display: inline-flex; align-items: center; cursor: pointer; }
+body.m3 .m3-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+body.m3 .sw-track {
+  width: 54px; height: 32px; border-radius: 16px;
+  background: var(--m3-secondary-container); border: 1px solid var(--border-strong);
+  display: flex; align-items: center; padding: 0 4px; transition: background 0.2s;
+}
+body.m3 .sw-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--m3-on-secondary-container); color: var(--m3-secondary-container);
+  font-size: 12px; display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+body.m3 .m3-switch input:checked + .sw-track { background: var(--m3-primary); border-color: transparent; justify-content: flex-end; }
+body.m3 .m3-switch input:checked + .sw-track .sw-thumb { background: var(--m3-on-primary); color: var(--m3-primary); }
+body.m3 .m3-switch input:focus-visible + .sw-track { outline: 2px solid var(--m3-primary); outline-offset: 2px; }
+
+/* ---------- M3 snackbar (was neon toast) ---------- */
+body.m3 .batman-toast {
+  left: 16px; right: auto; transform: translateY(90px);
+  background: #e8e3ff; color: #211866; border: none; border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  font-family: var(--font-sans);
+}
+body.m3 .batman-toast.show { transform: translateY(0); }
+@media (max-width: 680px) {
+  body.m3 header { top: 38px; margin: 0 8px; }
+  body.m3 .m3-qs { grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 14px 12px 16px; }
+  body.m3 .tile-ico { width: 48px; height: 48px; border-radius: 24px; }
+}

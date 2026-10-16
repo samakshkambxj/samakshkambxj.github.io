@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samaksh — Resume</title>
+<meta name="description" content="Resume of Samaksh — Full-stack Android developer. Origin Kernel maintainer.">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/108800886?v=4" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05050a; --surface: rgba(255,255,255,0.03); --surface-solid: #0d0d1a;
+    --border: rgba(255,255,255,0.09); --text: #f2f2f7; --dim: #a3a3bd; --muted: #62627e;
+    --violet: #7c6cff; --cyan: #22e6ce;
+    --gradient: linear-gradient(135deg, #7c6cff 0%, #22e6ce 100%);
+    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --font-sans: "Inter", system-ui, sans-serif; --font-mono: "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; -webkit-font-smoothing: antialiased; padding: 28px 20px 56px; }
+  body::before { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+    background-image: linear-gradient(rgba(124,108,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(124,108,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%); }
+  .orb { position: fixed; border-radius: 50%; filter: blur(110px); z-index: -1; pointer-events: none; }
+  .orb-1 { width: 520px; height: 520px; top: -200px; left: -120px; background: radial-gradient(circle, rgba(124,108,255,0.28), transparent 70%); }
+  .orb-2 { width: 440px; height: 440px; top: 40%; right: -160px; background: radial-gradient(circle, rgba(34,230,206,0.13), transparent 70%); }
+  .wrap { max-width: 840px; margin: 0 auto; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .back { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--dim); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .back:hover { color: var(--text); }
+  .back .logo-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gradient); box-shadow: 0 0 12px rgba(124,108,255,0.5); }
+  .actions { display: flex; gap: 10px; }
+  .btn { font: 600 13px var(--font-mono); padding: 10px 20px; border-radius: 11px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: 0.2s; }
+  .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.2); }
+  .btn.primary { background: var(--gradient); border: none; color: #fff; box-shadow: 0 4px 20px rgba(124,108,255,0.35); }
+  .page { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 46px 50px; backdrop-filter: blur(12px); position: relative; overflow: hidden; }
+  .page::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+  .id-row { display: flex; align-items: center; gap: 18px; margin-bottom: 6px; }
+  .avatar { width: 72px; height: 72px; border-radius: 50%; padding: 2px; background: var(--gradient); flex-shrink: 0; }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg); display: block; }
+  h1 { font-family: var(--font-display); font-size: 38px; letter-spacing: -0.03em; line-height: 1; }
+  h1 .grad { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .role { font-size: 15px; color: var(--dim); margin-top: 6px; }
+  .role strong { color: var(--text); }
+  .contact { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-family: var(--font-mono); font-size: 12.5px; }
+  .contact a { color: var(--cyan); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .sec-label { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--violet); letter-spacing: 0.1em; margin: 30px 0 6px; display: flex; align-items: center; gap: 10px; }
+  .sec-label::after { content: ""; display: inline-block; width: 36px; height: 1px; background: var(--violet); opacity: 0.5; }
+  .sec-title { font-family: var(--font-display); font-size: 21px; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .summary { font-size: 14.5px; color: var(--dim); }
+  .summary strong { color: var(--text); }
+  .proj { border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; margin-bottom: 10px; background: rgba(255,255,255,0.015); }
+  .proj h3 { font-family: var(--font-display); font-size: 15.5px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .proj h3 .tag { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cyan); background: rgba(34,230,206,0.08); border: 1px solid rgba(34,230,206,0.18); padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
+  .proj p { font-size: 13.5px; color: var(--dim); margin-top: 5px; }
+  .proj a { color: var(--cyan); text-decoration: none; }
+  .cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .cloud span { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 9px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--dim); }
+  .skill-row { margin-bottom: 12px; }
+  .skill-row .k { font-family: var(--font-mono); font-size: 11.5px; font-weight: 600; color: var(--violet); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+  ul.devices { list-style: none; }
+  ul.devices li { font-size: 13.5px; color: var(--dim); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 12px; }
+  ul.devices li:last-child { border: none; }
+  ul.devices strong { color: var(--text); font-family: var(--font-mono); font-size: 12.5px; }
+  .foot { margin-top: 28px; text-align: center; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .foot .grad { background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    body::before, .orb, .topbar { display: none !important; }
+    .page { border: none; border-radius: 0; background: #fff; padding: 0; }
+    .page::before { display: none; }
+    h1, .role, .summary, .proj h3, .proj p, ul.devices li, .foot { color: #111; }
+    .role strong, ul.devices strong { color: #111; }
+    h1 .grad, .foot .grad { -webkit-text-fill-color: #111; background: none; color: #111; }
+    .contact a, .proj a { color: #333; }
+    .sec-label { color: #444; } .sec-label::after { background: #444; }
+    .proj { border-color: #ddd; break-inside: avoid; }
+    .cloud span { border-color: #ddd; color: #333; }
+  }
+  @media (max-width: 560px) { .page { padding: 30px 22px; } h1 { font-size: 30px; } }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div><div class="orb orb-2"></div>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="index.html"><span class="logo-dot"></span>← samaksh.dev</a>
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Print</button>
+      <button class="btn primary" onclick="window.print()">Save as PDF ↓</button>
+    </div>
+  </div>
+  <div class="page">
+    <div class="id-row">
+      <span class="avatar"><img src="https://avatars.githubusercontent.com/u/108800886?v=4" alt="Samaksh"></span>
+      <div>
+        <h1>Samaksh <span class="grad">— resume</span></h1>
+        <div class="role"><strong>Full-Stack Android Developer</strong> · Origin Kernel maintainer</div>
+      </div>
+    </div>
+    <div class="contact">
+      <a href="mailto:samakshk4@gmail.com">samakshk4@gmail.com</a>
+      <a href="https://samaksh.dev">samaksh.dev</a>
+      <a href="https://github.com/samakshkambxj">github.com/samakshkambxj</a>
+      <a href="https://x.com/samakshk4">x.com/samakshk4</a>
+      <a href="https://t.me/itsonlyachannel">telegram</a>
+    </div>
+
+    <div class="sec-label">01 — PROFILE</div>
+    <div class="sec-title">From source sync to a bootable zip</div>
+    <p class="summary">Full-stack Android developer working <strong>from kernel to UI</strong>: custom ROM builds, kernel development, recovery porting and root solutions for Nothing (Mediatek) devices — plus <strong>fast, no-bloat web experiences</strong>. Maintainer of <strong>Origin Kernel</strong> for Phone (3a) Lite and CMF Phone 2 Pro.</p>
+
+    <div class="sec-label">02 — FLAGSHIP WORK</div>
+    <div class="sec-title">What I've shipped</div>
+    <div class="proj"><h3>Origin Kernel <span class="tag">★ flagship · C</span></h3>
+    <p>Custom kernel for Mediatek-based Nothing devices — schedulers, KernelSU-Next, BBRv3, ZRAM, power/thermal tuning. <a href="https://github.com/samakshkambxj/origin-kernel">github.com/samakshkambxj/origin-kernel</a></p></div>
+    <div class="proj"><h3>OriginSU <span class="tag">root</span></h3>
+    <p>Kernel-based root with cloaking, SuSFS hiding, bundled Zygisk, live tuning, bootloop rescue. <a href="https://github.com/samakshkambxj/OriginSU">github.com/samakshkambxj/OriginSU</a></p></div>
+    <div class="proj"><h3>Klarheit · Lunaris Dolby <span class="tag">audio</span></h3>
+    <p>Open-source audio engine; Dolby Atmos DAX3 port — 7 profiles, live EQ, spatial audio, per-app profiles, Tasker API.</p></div>
+    <div class="proj"><h3>fetchline <span class="tag">rust</span></h3>
+    <p>Linux-first download manager — segmented downloads, browser capture, video extraction. <a href="https://github.com/samakshkambxj/fetchline">github.com/samakshkambxj/fetchline</a></p></div>
+    <div class="proj"><h3>Morphe suite <span class="tag">rom add-ons</span></h3>
+    <p>QA-gated vendor drops with manifest + root prebuilts of patched YouTube / YT Music for A16/A17 ROMs.</p></div>
+    <div class="proj"><h3>Custom ROM builds <span class="tag">aosp</span></h3>
+    <p>Lunaris, Evolution X, crDroid, AxionOS, Infinity X, Rising OS, Avium UI — device trees and bring-ups across three Nothing devices.</p></div>
+
+    <div class="sec-label">03 — STACK</div>
+    <div class="sec-title">Tech I reach for daily</div>
+    <div class="skill-row"><div class="k">Languages</div><div class="cloud"><span>Bash</span><span>C</span><span>C++ · learning</span><span>Python</span><span>Java</span><span>JS / TS</span></div></div>
+    <div class="skill-row"><div class="k">Android internals</div><div class="cloud"><span>AOSP builds</span><span>Kernel dev</span><span>Device trees</span><span>Recovery porting</span><span>SELinux</span><span>Fastboot / ADB</span></div></div>
+    <div class="skill-row"><div class="k">Web + toolchain</div><div class="cloud"><span>HTML</span><span>CSS</span><span>Tailwind</span><span>React</span><span>Node.js</span><span>Git</span><span>Docker</span><span>GH Actions</span><span>Clang</span></div></div>
+
+    <div class="sec-label">04 — DEVICES</div>
+    <div class="sec-title">Maintained hardware</div>
+    <ul class="devices">
+      <li><strong>Nothing Phone (3a) Lite</strong><span>Origin Kernel + ROM builds</span></li>
+      <li><strong>CMF Phone 2 Pro</strong><span>Origin Kernel + ROM builds</span></li>
+      <li><strong>CMF Phone 1</strong><span>Support builds</span></li>
+    </ul>
+
+    <div class="foot">References: <span class="grad">github.com/samakshkambxj</span> · open to OSS collabs, AOSP / kernel work and web projects</div>
+  </div>
+</div>
+</body>
+</html>
